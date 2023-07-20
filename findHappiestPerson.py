@@ -18,7 +18,7 @@ while True:
     url = 'https://thispersondoesnotexist.com/'
     img = Image.open(requests.get(url, stream=True).raw).convert("RGB")
 
-    inputs = processor(text=["jonny depp"], images=img, return_tensors="pt", padding=True)
+    inputs = processor(text=["happy face"], images=img, return_tensors="pt", padding=True)
 
     outputs = model(**inputs)
     logits_per_image = outputs.logits_per_image  # this is the image-text similarity score
