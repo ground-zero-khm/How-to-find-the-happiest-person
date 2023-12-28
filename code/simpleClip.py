@@ -3,13 +3,15 @@ import requests
 from transformers import CLIPProcessor, CLIPModel
 
 model = CLIPModel.from_pretrained("openai/clip-vit-base-patch32")
+print('load model')
 processor = CLIPProcessor.from_pretrained("openai/clip-vit-base-patch32")
+print('load processor')
 
 i = 0
-while True:
+while i == 0:
     
 
-    inputKey = input()
+    #inputKey = input()
 
     ####################input website#############################
     #url = inputKey
@@ -22,9 +24,11 @@ while True:
 
 
     ##########load image from dist##############################
-    img = Image.open("cat.jpg")
+    img = Image.open("beach.jpg")
 
-    inputs = processor(text=["happy"], images=img, return_tensors="pt", padding=True)
+    
+
+    inputs = processor(text=["AI"], images=img, return_tensors="pt", padding=True)
 
     outputs = model(**inputs)
     logits_per_image = outputs.logits_per_image  # this is the image-text similarity score
@@ -33,6 +37,9 @@ while True:
     now = logits_per_image.item()
    
     prob_happy = probs[0,:].item()
-    print(f"{i}\tscore:{now}\tprob:{prob_happy}")
-    img.save('outputimage/this.jpg')
+    print(f"image Number 1 : {i}\tscore:{now}\tprob:{prob_happy}")
+
+
+
+
     i = i + 1

@@ -19,13 +19,12 @@ food_keywords = [
     "Fried Rice",
     "Katsudon",
     "Crepe",
+    "sushi",
 ]
 i = 0
 
 
 while True:
-
-
     #url = 'https://thispersondoesnotexist.com/'
     #img = Image.open(requests.get(url, stream=True).raw).convert("RGB")
 

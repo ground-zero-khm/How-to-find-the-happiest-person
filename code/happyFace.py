@@ -16,7 +16,7 @@ emotional_keywords = [
     "a photo of surprise",
     "a photo of anger",
     "a photo of fear",
-    "a photo of disgust",
+    #"a photo of disgust",
     "a photo of excitement",
     "a photo of contentment",
     "a photo of love",
@@ -37,6 +37,19 @@ emotional_keywords = [
     "a photo of irritation",
     "a photo of surprise",
 ]
+
+
+
+import json
+with open('countries.json', 'r') as f:
+    data = json.load(f)
+
+countries = []
+for item in data:
+    countries.append("person from the country "+item['name'])
+
+
+emotional_keywords = countries
 
 # Create a VideoCapture object to capture frames from the camera
 cap = cv2.VideoCapture(0)
